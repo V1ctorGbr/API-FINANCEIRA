@@ -3,14 +3,8 @@ const express = require('express')
 
 const router = express.Router ()
 
-const usuarios = []
+const authRoutes = require('./controllers/authController')
 
-router.post ('/register',(req, res) =>{
-    const {name,email,password} = req.body
-
-    usuarios.push({name, email, password})
-
-    res.json({message:'Usuário cadastrato  '})
-})
+router.post('./register',authController.register)
 
 module.exports = router
